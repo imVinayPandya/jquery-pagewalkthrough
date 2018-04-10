@@ -414,6 +414,7 @@
       }
     }
 
+    showButton('jpwSkipAll');
     showButton('jpwPrevious');
     showButton('jpwNext');
     showButton('jpwFinish');
@@ -889,6 +890,10 @@
   /* Close and finish tour buttons clicks */
   $(document).on('click', '#jpwClose, #jpwFinish', methods.close);
 
+  /* Skip All to skip all tour steps
+   */
+  $(document).on('click', '#jpwSkipAll', methods.close);
+
   /* Next button clicks
    */
   $(document).on('click', '#jpwNext', function() {
@@ -1037,6 +1042,12 @@
         // Whether or not to show the button.  Can be a boolean value, or a
         // function which returns a boolean value
         show: true
+      },
+      jpwSkipAll: {
+        i18n: 'Skip All &#9193;',
+        show: function() {
+          return isFirstStep();
+        }
       },
       jpwNext: {
         i18n: 'Next &rarr;',
