@@ -139,6 +139,14 @@ $.fn.pagewalkthrough.defaults = {
       // function which returns a boolean value
       show: true
     },
+    jpwSkipAll: {
+      i18n: 'Skip All &#9193;',
+      // Whether or not to show the button.  Can be a boolean value, or a
+      // function which returns a boolean value
+      show: function() {
+        return isFirstStep();
+      }
+    },
     jpwNext: {
       i18n: 'Next &rarr;',
       // Function which resolves to a boolean
